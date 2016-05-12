@@ -50,6 +50,7 @@ public class MainActivity extends MvpActivity<MainInfoView, MainPresenter> imple
         tv_follower = (TextView) findViewById(R.id.tv_follower);
         tv_careated_at = (TextView) findViewById(R.id.tv_created_at);
         iv_head = (SimpleDraweeView) findViewById(R.id.iv_head_view);
+        iv_head.setVisibility(View.INVISIBLE);
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,7 @@ public class MainActivity extends MvpActivity<MainInfoView, MainPresenter> imple
         tv_careated_at.setText("created at: " + user.getCreated_at().substring(0, 10));
         tv_follower.setText("follower: " + user.getFollowers());
         Uri head_uri = Uri.parse(user.getAvatar_url());
+        iv_head.setVisibility(View.VISIBLE);
         iv_head.setImageURI(head_uri);
     }
 
